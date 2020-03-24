@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:id="@+id/relative"
+    android:layout_above="@id/vehicle"
+    android:layout_height="match_parent">
+
+
+</RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionThreshold="1"
+        android:hint="  Manufacturer"
+        android:layout_below="@id/progress"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:drawableLeft="@drawable/factory"
+        android:id="@+id/searchmanu"></AutoCompleteTextView>
+
+    <com.alespero.expandablecardview.ExpandableCardView
+        android:id="@+id/vehicle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Model"
+        app:icon="@drawable/caricon"
+        android:layout_marginTop="20dp"
+        app:inner_view="@layout/manuinner1"
+        android:layout_alignParentBottom="true"
+        app:expandOnClick="true"
+        app:animationDuration="300"
+        app:startExpanded="false"/>
+</RelativeLayout>

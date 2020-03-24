@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "org.andresoviedo.dddmodel2"
+        minSdkVersion 24
+        targetSdkVersion 28
+        ndk{
+            moduleName "gltf-lib"       //生成的so文件名字，调用C程序的代码中会用到该名字
+            abiFilters "armeabi", "armeabi-v7a", "x86" //输出指定三种平台下的so库
+        }
+    }
+
+
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+//            signingConfig signingConfigs.release
+//        }
+//    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    def appcompat_version = "1.1.0"
+
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.mahimrocky:ExpandableCardView:1.0.1'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.shawnlin:number-picker:2.4.9'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.alespero:expandable-cardview:0.8'
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
+    implementation project(':engine')
+}
